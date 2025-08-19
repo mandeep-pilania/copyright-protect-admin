@@ -1,0 +1,22 @@
+<table
+  class="table table-bordered table-striped table-hover text-center align-middle"
+>
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Subject</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of AllEnquiries">
+      <td>{{ item?.name | titlecase }}</td>
+      <td>{{ item?.email }}</td>
+      <td>{{ item?.mobile }}</td>
+      <td>{{ item?.subject }}</td>
+      <td>{{ item?.message }}</td>
+    </tr>
+  </tbody>
+</table>

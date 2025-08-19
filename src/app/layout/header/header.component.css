@@ -1,0 +1,14 @@
+/* Header styles */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+}
+
+.navbar-toggler {
+  filter: brightness(0.4);
+}
+
+.btn-outline-danger {
+  border-width: 2px;
+  font-weight: 600;
+}

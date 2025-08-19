@@ -1,0 +1,25 @@
+<div class="d-flex vh-100">
+  <!-- Sidebar -->
+  <nav
+    class="sidebar bg-dark d-flex flex-column p-3"
+    style="width: 250px; min-width: 250px"
+  >
+    <h4 class="sidebar-brand text-center mb-4">My App</h4>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item mb-2">
+        <a
+          routerLink="/all-enquiries"
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><i class="bi bi-speedometer2 me-2"></i> All Enquiries</a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Content -->
+  <div class="flex-grow-1 p-4 bg-light">
+    <!-- Main content here -->
+  </div>
+</div>

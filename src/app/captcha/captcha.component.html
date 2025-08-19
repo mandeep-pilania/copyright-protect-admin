@@ -1,0 +1,12 @@
+<div class="captcha-overlay" *ngIf="!captchaSolved">
+  <div class="captcha-box">
+    <re-captcha
+      (resolved)="onCaptchaResolved($event)"
+      siteKey="6LfZHqgrAAAAALK-2og6NMZ4h5HH56jnKKicR7GM">
+    </re-captcha>
+  </div>
+</div>
+
+<ng-content *ngIf="captchaSolved"></ng-content>
+
+<!-- 6LfZHqgrAAAAALK-2og6NMZ4h5HH56jnKKicR7GM -->
