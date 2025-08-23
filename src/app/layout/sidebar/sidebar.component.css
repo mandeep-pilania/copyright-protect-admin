@@ -6,7 +6,6 @@
   min-width: 250px;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 1rem 1rem;
 }
 
 .sidebar-brand {
@@ -28,12 +27,12 @@
 }
 
 .sidebar .nav-link:hover {
-  background-color: #14b8a6; /* teal */
+  background-color: #00bcd4; /* teal */
   color: #fff;
 }
 
 .sidebar .nav-link.active {
-  background-color: #0f766e; /* dark teal */
+  background-color: #003c71; /* dark teal */
   color: #fff;
   font-weight: 700;
 }

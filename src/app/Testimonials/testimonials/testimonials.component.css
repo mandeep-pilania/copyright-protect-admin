@@ -1,0 +1,41 @@
+.testimonial-card {
+  border-left: 4px solid #0d6efd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 350px; /* fixed height */
+}
+
+.card-body {
+  flex: 1 1 auto; /* take available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-text {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 20px; /* some breathing room */
+  overflow: auto; /* in case text is too long */
+}
+
+.stars {
+  color: #f5c518;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  margin: 0;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.address {
+  margin: 0;
+  color: #333;
+}

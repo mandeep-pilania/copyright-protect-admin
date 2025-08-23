@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/firestore.service';
+import { Auth, onAuthStateChanged, User } from '@angular/fire/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-all-enquiries',
   templateUrl: './all-enquiries.component.html',
   styleUrls: ['./all-enquiries.component.css'],
 })
-export class AllEnquiriesComponent {
-  AllEnquiries: any = [];
-  constructor(private _service: FirestoreService) {}
-  ngOnInit() {
-    this.GetAll();
-  }
+export class AllEnquiriesComponent implements OnInit {
+  AllEnquiries: any[] = [];
+  currentUser: User | null = null;
 
-  GetAll() {
-    this._service.getItems().subscribe((res: any) => {
-      this.AllEnquiries = res;
+  constructor(
+    private _service: FirestoreService,
+    private auth: Auth,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit(): void {
+    // Firebase Auth listener
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) {
+        this.currentUser = user;
+        this.GetAll();
+      } else {
+        this.currentUser = null;
+      }
     });
   }
-  open() {
-    let phoneNumber = '919350052809';
-    let url = `https://wa.me/${phoneNumber}`;
-    window.open(url);
+
+  GetAll(): void {
+    this._service.GetEnquiries().subscribe({
+      next: (res: any) => {
+        this.AllEnquiries = res;
+      },
+      error: (err) => {
+        this.toastr.error(err);
+      },
+    });
   }
 }

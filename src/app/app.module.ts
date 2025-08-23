@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllEnquiriesComponent } from './All Enquiries/all-enquiries/all-enquiries.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { TestimonialsComponent } from './Testimonials/testimonials/testimonials.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     LoginComponent,
     AllEnquiriesComponent,
     SidebarComponent,
+    TestimonialsComponent,
   ],
   imports: [
     BrowserModule,

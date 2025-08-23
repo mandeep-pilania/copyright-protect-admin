@@ -1,0 +1,139 @@
+<section class="p-0">
+  <div class="row">
+    <div class="col-lg-12">
+      <h5 class="mb-3">
+        {{ !TestimonialForm.value.id ? "Add" : "Update" }} Review
+      </h5>
+      <form [formGroup]="TestimonialForm" (ngSubmit)="onSubmit()">
+        <div class="row align-items-end">
+          <div class="col-md-3">
+            <label>Name</label>
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              class="form-control same-height"
+              placeholder="Enter your name"
+              [class.is-invalid]="
+                TestimonialForm.controls['name'].invalid &&
+                (TestimonialForm.controls['name'].dirty ||
+                  TestimonialForm.controls['name'].touched)
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="TestimonialForm.controls['name'].errors"
+            >
+              <small *ngIf="TestimonialForm.controls['name'].errors['required']"
+                >Name is required</small
+              >
+              <small
+                *ngIf="TestimonialForm.controls['name'].errors['minlength']"
+                >Minimum 3 characters required</small
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label>Description</label>
+            <textarea
+              id="description"
+              formControlName="description"
+              class="form-control"
+              rows="2"
+              placeholder="Write your review"
+              [class.is-invalid]="
+                TestimonialForm.controls['description'].invalid &&
+                (TestimonialForm.controls['description'].dirty ||
+                  TestimonialForm.controls['description'].touched)
+              "
+              style="height: 0px"
+            ></textarea>
+            <div
+              class="invalid-feedback"
+              *ngIf="TestimonialForm.controls['description'].errors"
+            >
+              <small
+                *ngIf="
+                  TestimonialForm.controls['description'].errors['required']
+                "
+                >Description is required</small
+              >
+              <small
+                *ngIf="
+                  TestimonialForm.controls['description'].errors['minlength']
+                "
+                >Minimum 10 characters required</small
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label>Address</label>
+            <input
+              id="address"
+              type="text"
+              formControlName="address"
+              class="form-control same-height"
+              placeholder="Enter address"
+              [class.is-invalid]="
+                TestimonialForm.controls['address'].invalid &&
+                (TestimonialForm.controls['address'].dirty ||
+                  TestimonialForm.controls['address'].touched)
+              "
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="TestimonialForm.controls['address'].errors"
+            >
+              <small
+                *ngIf="TestimonialForm.controls['address'].errors['required']"
+                >Address is required</small
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary px-3">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr class="my-4" />
+    <div class="col-lg-12">
+      <h5 class="mb-3">All Reviews</h5>
+      <table
+        class="table table-bordered table-striped table-hover align-middle"
+      >
+        <thead class="bg-primary">
+          <tr>
+            <th>Actions</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of AllTestimonials; let i = index">
+            <td>
+              <i class="bi bi-pencil-square me-2 fs-6" (click)="Edit(item)"></i>
+              <i
+                class="bi bi-trash fs-6 text-danger"
+                (click)="Delete(item?.id)"
+              ></i>
+              <!-- <button class="btn btn-warning mb-2">Edit</button
+            ><button class="btn btn-danger" >
+              Delete
+            </button> -->
+            </td>
+            <td>{{ item?.id }}</td>
+            <td>{{ item?.name | titlecase }}</td>
+            <td>{{ item?.address }}</td>
+            <td>{{ item?.description }}</td>
+          </tr>
+          <tr class="text-center" *ngIf="AllTestimonials?.length === 0">
+            <td colspan="5" class="text-muted">No reviews yet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

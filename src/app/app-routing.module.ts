@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AllEnquiriesComponent } from './All Enquiries/all-enquiries/all-enquiries.component';
 import { AuthGuard } from './helpers/auth.guard';
+import { TestimonialsComponent } from './Testimonials/testimonials/testimonials.component';
 
 const routes: Routes = [
   {
@@ -16,10 +17,16 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'all-enquiries',
+    path: '',
     canActivate: [AuthGuard],
     component: LayoutComponent,
-    children: [{ path: '', component: AllEnquiriesComponent }],
+    children: [
+      { path: 'all-enquiries', component: AllEnquiriesComponent },
+      {
+        path: 'testimonials',
+        component: TestimonialsComponent,
+      },
+    ],
   },
 ];
 
